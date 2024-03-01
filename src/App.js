@@ -35,17 +35,19 @@ const App = () => {
                 setLocation={setLocation}
                 searchLocation={searchLocation}
             />
+
             {error && <div className="error">{error}</div>}
+
             {data.name &&
                 <div className="container">
-                    {data.name && <TopSection data={data}/>}
+                    <TopSection data={data}/>
 
                     <div className="temp">
-                        {data.main ? <h1 className='temp-name'>{(data.main.temp - 273.15).toFixed()}°C</h1> : null}
-                        {data.main ? <span className='date'>{dayjs().format('dddd | D MMM YYYY')}</span> : null}
+                        <h1 className='temp-name'>{(data.main.temp - 273.15).toFixed()}°C</h1>
+                        <span className='date'>{dayjs().format('dddd | D MMM YYYY')}</span>
                     </div>
 
-                    {data.name && <BottomSection data={data}/>}
+                    <BottomSection data={data}/>
                 </div>
             }
         </div>

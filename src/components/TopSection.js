@@ -6,15 +6,15 @@ const TopSection = ({data}) => {
         <div className="top">
             <div className="location">
                 <div>
-                    {data.weather ? <p className='name'>{data.name}</p> : null}
+                    <p className='name'>{data.name}</p>
                 </div>
 
                 <div className="description1">
-                    {data.weather ? <p className='cloud'>{data.weather[0].main}</p> : null}
+                    <p className='cloud'>{data.weather[0].main}</p>
                 </div>
             </div>
             <div className="description">
-                {data.weather ? <img className='img' alt='Weather Icon' src={CloudIcon}/> : null}
+                <img className='img' alt='Weather Icon' src={CloudIcon}/>
             </div>
         </div>
     );

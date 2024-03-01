@@ -11,7 +11,7 @@ import Image3 from "../assets/img-3.png";
 import Image4 from "../assets/img-4.png";
 import dayjs from "dayjs";
 
-const BottomSection = ({ data }) => {
+const BottomSection = ({data}) => {
     return (
         <div className="bottom">
             <div className="left-side">
@@ -146,16 +146,16 @@ const BottomSection = ({ data }) => {
                     </div>
                 </div>
 
-                {data.main ? <p className='time'>{dayjs().format('h:mmA')} GMT</p> : null}
+                <p className='time'>{dayjs().format('h:mmA')} GMT</p> : null
                 <p className='air'>AIR CONDITIONS</p>
 
                 <div className="air-item air-first">
                     <p>Real Feel</p>
-                    {data.main ? <span>{(data.main.feels_like - 273.15).toFixed()}°</span> : null}
+                    <span>{(data.main.feels_like - 273.15).toFixed()}°</span> : null
                 </div>
                 <div className="air-item air-second">
                     <p>Wind</p>
-                    {data.wind ? <span>{data.wind.speed.toFixed()} km/hr</span> : null}
+                    <span>{data.wind.speed.toFixed()} km/hr</span>
                 </div>
                 <div className="air-item air-third">
                     <p>Chance of rain</p>
