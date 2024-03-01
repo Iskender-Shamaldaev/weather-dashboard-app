@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Weather Dashboard Application that allows users to search for and display the current weather and forecast in their city.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
