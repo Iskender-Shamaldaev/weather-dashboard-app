@@ -17,15 +17,21 @@ import Fri from './assets/fri.png';
 function App() {
     const [data, setData] = useState({});
     const [location, setLocation] = useState('');
+    const [error, setError] = useState('');
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=d602a3d2609f7ac0d8dc891d54b9acdf`
 
-    const searchLocation = (event) => {
+    const searchLocation = async (event) => {
         if (event.key === 'Enter') {
-            axios.get(url).then((response) => {
+            try {
+                const response = await axios.get(url);
                 setData(response.data);
+                setError('');
                 console.log(response.data);
-            })
+            } catch (error) {
+                alert('City not found. Please enter a valid city name!');
+                console.error('Error fetching data:', error);
+            }
             setLocation('');
         }
     }
@@ -40,7 +46,8 @@ function App() {
                     placeholder='Enter Location'
                     type="text"/>
             </div>
-
+            {error && <div className="error">{error}</div>}
+            {data.name &&
             <div className="container">
                 <div className="top">
                     <div className="location">
@@ -62,7 +69,7 @@ function App() {
                     {data.main ? <h1 className='temp-name'>{(data.main.temp - 273.15).toFixed()}°C</h1> : null}
                     {data.main ? <span className='date'>{dayjs().format('dddd | D MMM YYYY')}</span> : null}
                 </div>
-                {data.name !== undefined &&
+                {/*{data.name !== undefined &&*/}
                     <div className="bottom">
                         <div className="left-side">
                             <img src={AuthorIcon} alt="author"/>
@@ -217,9 +224,9 @@ function App() {
                             </div>
                         </div>
                     </div>
-                }
-
+                {/*}*/}
             </div>
+            }
         </div>
     );
 }
