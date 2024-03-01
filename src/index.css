@@ -517,7 +517,7 @@ body {
 }
 
 @media (max-width: 865px) {
-   .degree7, .degree6, .degree5, .right-side {
+    .degree7, .degree6, .degree5, .right-side {
         display: none;
     }
 }
@@ -533,8 +533,8 @@ body {
         margin-top: 10px;
     }
 
-   .bottom .left-side, .first {
-       display: none;
+    .bottom .left-side, .first {
+        display: none;
     }
 
     .second {

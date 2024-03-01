@@ -48,28 +48,28 @@ function App() {
             </div>
             {error && <div className="error">{error}</div>}
             {data.name &&
-            <div className="container">
-                <div className="top">
-                    <div className="location">
-                        <div>
-                            {data.weather ? <p className='name'>{data.name}</p> : null}
-                        </div>
+                <div className="container">
+                    <div className="top">
+                        <div className="location">
+                            <div>
+                                {data.weather ? <p className='name'>{data.name}</p> : null}
+                            </div>
 
-                        <div className="description1">
-                            {data.weather ? <p className='cloud'>{data.weather[0].main}</p> : null}
+                            <div className="description1">
+                                {data.weather ? <p className='cloud'>{data.weather[0].main}</p> : null}
+                            </div>
+                        </div>
+                        <div className="description">
+                            {data.weather ? <img className='img' alt='Weather Icon'
+                                                 src={CloudIcon}/> : null}
                         </div>
                     </div>
-                    <div className="description">
-                        {data.weather ? <img className='img' alt='Weather Icon'
-                                             src={CloudIcon}/> : null}
-                    </div>
-                </div>
 
-                <div className="temp">
-                    {data.main ? <h1 className='temp-name'>{(data.main.temp - 273.15).toFixed()}°C</h1> : null}
-                    {data.main ? <span className='date'>{dayjs().format('dddd | D MMM YYYY')}</span> : null}
-                </div>
-                {/*{data.name !== undefined &&*/}
+                    <div className="temp">
+                        {data.main ? <h1 className='temp-name'>{(data.main.temp - 273.15).toFixed()}°C</h1> : null}
+                        {data.main ? <span className='date'>{dayjs().format('dddd | D MMM YYYY')}</span> : null}
+                    </div>
+
                     <div className="bottom">
                         <div className="left-side">
                             <img src={AuthorIcon} alt="author"/>
@@ -224,8 +224,7 @@ function App() {
                             </div>
                         </div>
                     </div>
-                {/*}*/}
-            </div>
+                </div>
             }
         </div>
     );
