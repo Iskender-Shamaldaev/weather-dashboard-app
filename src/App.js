@@ -44,9 +44,12 @@ function App() {
             <div className="container">
                 <div className="top">
                     <div className="location">
-                        {data.weather ? <p className='name'>{data.name}</p> : null}
+                        <div>
+                            {data.weather ? <p className='name'>{data.name}</p> : null}
+                        </div>
+
                         <div className="description1">
-                            {data.weather ? <p>{data.weather[0].main}</p> : null}
+                            {data.weather ? <p className='cloud'>{data.weather[0].main}</p> : null}
                         </div>
                     </div>
                     <div className="description">
@@ -70,22 +73,50 @@ function App() {
                         </div>
 
                         <div className="middle-side">
+                            <div className="right-side-forecast2">
+                                <div className="right-side-item">
+                                    <div className="day1">FRI</div>
+                                    <div className='arrow arrow-left'></div>
+                                    <img src={Fri} alt="Friday"/>
+                                </div>
+
+                                <div className="right-side-item">
+                                    <div className="day2">SAT</div>
+                                    <img src={Sat} alt="Saturday"/>
+                                </div>
+
+                                <div className="right-side-item">
+                                    <div className="day">SUN</div>
+                                    <img src={Sun} alt="Sunday"/>
+                                </div>
+
+                                <div className="right-side-item">
+                                    <div className="day2">MON</div>
+                                    <img src={Mon} alt="Monday"/>
+                                </div>
+
+                                <div className="right-side-item">
+                                    <div className="day1">TUES</div>
+                                    <div className='arrow arrow-right'></div>
+                                    <img src={Tues} alt="Tuesday"/>
+                                </div>
+                            </div>
                             <div className="first">
                                 <span className='area'>Activities in your area</span>
                                 <div className="image-cards">
-                                    <div>
+                                    <div className='card'>
                                         <img src={Image1} alt="Image1"/>
                                         <p>2km away</p>
                                     </div>
-                                    <div>
+                                    <div className='card'>
                                         <img src={Image2} alt="Image2"/>
                                         <p>1.5km away</p>
                                     </div>
-                                    <div>
+                                    <div className='card'>
                                         <img src={Image3} alt="Image3"/>
                                         <p>3km away</p>
                                     </div>
-                                    <div>
+                                    <div className='card'>
                                         <img src={Image4} alt="Image4"/>
                                         <p>500m away</p>
                                     </div>
