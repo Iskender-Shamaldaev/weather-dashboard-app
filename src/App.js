@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import dayjs from 'dayjs';
 import TopSection from "./components/TopSection";
@@ -10,6 +10,7 @@ const App = () => {
     const [data, setData] = useState({});
     const [location, setLocation] = useState('');
     const [error, setError] = useState('');
+    const [background, setBackground] = useState('#D2982D');
 
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=d602a3d2609f7ac0d8dc891d54b9acdf`
 
@@ -28,8 +29,19 @@ const App = () => {
         }
     }
 
+    useEffect(() => {
+        if (data.weather) {
+            const weather = data.weather[0].main.toLowerCase();
+            if (weather.includes('rain')) {
+                setBackground('#2E64FE');
+            } else {
+                setBackground('#D2982D');
+            }
+        }
+    }, [data]);
+
     return (
-        <div className="app">
+        <div className="app" style={{ backgroundColor: background }}>
             <Search
                 location={location}
                 setLocation={setLocation}

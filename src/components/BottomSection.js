@@ -146,12 +146,12 @@ const BottomSection = ({data}) => {
                     </div>
                 </div>
 
-                <p className='time'>{dayjs().format('h:mmA')} GMT</p> : null
+                <p className='time'>{dayjs().format('h:mmA')} GMT</p>
                 <p className='air'>AIR CONDITIONS</p>
 
                 <div className="air-item air-first">
                     <p>Real Feel</p>
-                    <span>{(data.main.feels_like - 273.15).toFixed()}°</span> : null
+                    <span>{(data.main.feels_like - 273.15).toFixed()}°</span>
                 </div>
                 <div className="air-item air-second">
                     <p>Wind</p>

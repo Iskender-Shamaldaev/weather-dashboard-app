@@ -1,7 +1,11 @@
 import React from 'react';
 import CloudIcon from '../assets/cloud.png';
+import RainIcon from '../assets/rain.png';
 
 const TopSection = ({data}) => {
+
+    const weatherIcon = data.weather && data.weather[0].main.toLowerCase().includes('rain') ? RainIcon : CloudIcon;
+
     return (
         <div className="top">
             <div className="location">
@@ -14,7 +18,7 @@ const TopSection = ({data}) => {
                 </div>
             </div>
             <div className="description">
-                <img className='img' alt='Weather Icon' src={CloudIcon}/>
+                <img className='img' alt='Weather Icon' src={weatherIcon}  style={{ width: '321px', height: '321px' }}/>
             </div>
         </div>
     );
